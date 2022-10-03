@@ -1,4 +1,13 @@
-import {useState} from "react";
+import {useState, forwardRef} from "react";
+import Link from "next/link";
+
+const NavigationButton = forwardRef(({onClick, href}, ref) => {
+  return (
+    <div>
+      <a href={href} onClick={onClick} ref={ref}>Go to ABOUT page</a>
+    </div>
+  )
+})
 
 export default function IndexPage() {
   const [word,setWord] = useState('');
@@ -18,6 +27,12 @@ export default function IndexPage() {
 
   return (
     <div>
+      <Link href="/about">
+        <a>About</a>
+      </Link>
+      <Link href="/about" passHref>
+        <NavigationButton/>
+      </Link>
       <input onChange={e => setWord(e.target.value)} value={word}/>
       <button onClick={transformLower}>Transform lowercase</button>
       <button onClick={transformUpper}>Transform uppercase</button>
