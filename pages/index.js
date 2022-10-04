@@ -39,6 +39,7 @@ export default function IndexPage() {
       <h2>
         Result transformed: {transformed}
       </h2>
+      <img src='nextjs_logo.jpeg'/>
     </div>
   )
 }
